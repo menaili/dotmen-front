@@ -10,8 +10,19 @@ const steps = [
   { id: 'Step 5', name: 'Skills' },
   { id: 'Step 6', name: 'Hobbies' },
 ]
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  website: string;
+}
 
-export default function Form() {
+interface FormProps {
+  formData: FormData;
+  handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const Form: React.FC<FormProps> = ({ formData, handleInputChange }) => {
   const [currentStep, setCurrentStep] = useState(0)
 
   const next = () => {
@@ -27,7 +38,7 @@ export default function Form() {
   }
 
   return (
-    <section className='w-full p-5 mt-5'>
+    <section className='w-full p-5'>
       {/* steps */}
       <nav aria-label='Progress'>
         <ol role='list' className='space-y-4 md:flex md:space-x-8 md:space-y-0'>
@@ -123,6 +134,8 @@ export default function Form() {
                   type='text'
                   name='firstName'
                   id='first-name'
+                  value={formData.firstName}
+                  onChange={handleInputChange}
                   autoComplete='given-name'
                   className='w-full px-4 py-2 text-gray-800 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200'
                 />
@@ -142,6 +155,8 @@ export default function Form() {
                   type='text'
                   name='lastName'
                   id='last-name'
+                  value={formData.lastName}
+                  onChange={handleInputChange}
                   autoComplete='family-name'
                   className='w-full px-4 py-2 text-gray-800 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200'
                 />
@@ -789,3 +804,5 @@ export default function Form() {
     </section>
   )
 }
+
+export default Form;
