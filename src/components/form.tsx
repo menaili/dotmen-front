@@ -194,6 +194,8 @@ const Form: React.FC<FormProps> = ({ formData, handleInputChange }) => {
                   id='email'
                   name='email'
                   type='email'
+                  value={formData.email}
+                  onChange={handleInputChange}
                   autoComplete='email'
                   className='w-full px-4 py-2 text-gray-800 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200'
                 />

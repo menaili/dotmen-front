@@ -2,7 +2,7 @@ interface FormData {
     firstName: string;
     lastName: string;
     email: string;
-    website: string;
+    profile: string;
 }
 
 interface FormProps {
@@ -117,30 +117,9 @@ const Test: React.FC<FormProps> = ({ formData }) => {
               y="300.375"
               x="39"
             >
-              Haroun
+              {formData.firstName} {formData.lastName}
             </text>
-            <text
-              fill="black"
-              fontWeight="normal"
-              fontStyle="normal"
-              fontSize="10px"
-              fontFamily="LiberationSans"
-              y="300.375"
-              x="74.576171875"
-            >
-              Errachide
-            </text>
-            <text
-              fill="black"
-              fontWeight="normal"
-              fontStyle="normal"
-              fontSize="10px"
-              fontFamily="LiberationSans"
-              y="300.375"
-              x="120.15234375"
-            >
-              MENAILI
-            </text>
+            
             <svg y="320.25" x="15" id="emailaddress"></svg>
             <image
               imageRendering="optimizeSpeed"
@@ -159,7 +138,7 @@ const Test: React.FC<FormProps> = ({ formData }) => {
               y="330.375"
               x="39"
             >
-              haroun.menaili@gmail.com
+              {formData.email}
             </text>
             <svg y="350.25" x="15" id="website"></svg>
             <image
